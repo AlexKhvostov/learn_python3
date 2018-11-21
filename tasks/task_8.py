@@ -8,6 +8,9 @@
 
 '''
 
+
+'''  РАЗООБРАТЬСЯ С РАБОТОЙ __XOR__   '''
+
 class XO:
     def __xor__(self,s,k):
         self.cip = s^k
