@@ -1,1 +1,9 @@
-mysqldump --user=root --password=Protokol911 Learn >import.sql
+# Импорт и экспорт базы данных ( таблицы ) под root'ом с паролем
+	mysqldump --user=root --password=Protokol911 Learn >import.sql
+
+# создание пользователя в MySQL:
+	CREATE USER 'non-root'@'localhost' IDENTIFIED BY '123';
+# Начзначение прав пользователю
+	GRANT ALL PRIVILEGES ON * . * TO 'non-root'@'localhost';
+# перезагрузка. для того что бы изменения вступили в силу
+	FLUSH PRIVILEGES;
