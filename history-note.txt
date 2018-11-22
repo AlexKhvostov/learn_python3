@@ -1,0 +1,155 @@
+    1  sudo apt update
+    2  git add .
+    3  git status
+    4  git commit -m "first commit"
+    5  git status
+    6  git remote add origin https://github.com/AlexKhvostov/lin-py-exmp.git
+    7  git push
+    8  pip install venv
+    9  python3 -m venv env
+   10  source env/bin/activate
+   11  history
+   12  history | grep pip
+   13  history -d 13
+   14  sudo -i
+   15  reboot
+   16  sudo -i
+   17  exit
+   18  sudo -i
+   19  exit
+   20  ping 192.168.1.10
+   21  sudo -i
+   22  exit
+   23  sudo -i
+   24  cd python/learn_python3/
+   25  source env/bin/activate
+   26  cd python/learn_python3/
+   27  source env/bin/activate
+   28  pip install mysqlclient
+   29  diactivate
+   30  deactivate
+   31  pip install mysqlclient
+   32  pip3 install mysqlclient
+   33  pip3 install mysql
+   34  pip3 install mysqlclient
+   35  sudo apt-get install pyhton-mysqldb
+   36  sudo apt-get install python-mysqldb
+   37  pip install pymysql
+   38  source env/bin/activate
+   39  pip install pymysql
+   40  deactivate
+   41  sudo apt-get install python-mysqldb
+   42  mysql -u root -p
+   43  cd python/learn_python3/
+   44  source env/bin/activate
+   45  python hello.py
+   46  python test_mysql.py
+   47  python3 test_mysql.py
+   48  pip install python-mysql
+   49  pip install peewee
+   50  cd python/learn_python3/
+   51  mysql -u root -p
+   52  mysql server --help
+   53  mysql server
+   54  sudo mysql server
+   55  sudo mysql server -p
+   56  sudo mysql Learn -p
+   57  cd python/ll
+   58  cd python/
+   59  ll
+   60  cd l
+   61  cd learn_python3/
+   62  ll
+   63  cd app
+   64  ll
+   65  git status
+   66  git add .
+   67  git status
+   68  cd ..
+   69  ll
+   70  gedit .gitignore
+   71  git add .
+   72  git status
+   73  git reset app/__pycache__/
+   74  git status
+   75  git status
+   76  grap git
+   77  git ?
+   78  git --help
+   79  git push
+   80  git status
+   81  git pull
+   82  git -help
+   83  git status
+   84  git rm ir .idea/workspace.xml 
+   85  git rm --ceched .idea/workspace.xml 
+   86  git rm --cached .idea/workspace.xml 
+   87  git status
+   88  git pull
+   89  git rm --cached .gitignore 
+   90  git status
+   91  git pull
+   92  git add .
+   93  git status
+   94  git commit -m " add"
+   95  git status
+   96  git pull
+   97  git push
+   98  git pull
+   99  git status
+  100  git pull
+  101  git status
+  102  git pull
+  103  git push
+  104  git push --help
+  105  git push --all
+  106  git pull --all
+  107  git status
+  108  git add/rm .gitignore
+  109  git rm .gitignore
+  110  git status
+  111  git pull
+  112  git rm --cached *
+  113  git pull
+  114  git status
+  115  gedit .gitignire
+  116  git status
+  117  git rm --cached .idea/*
+  118  git rm --cached env
+  119  git rm --cached /env*
+  120  git rm --cached /env/*
+  121  git rm --cached env/*
+  122  git rm --cached env
+  123  git rm --cached env/
+  124  git reset
+  125  git status
+  126  git pull
+  127  git pull --help
+  128  git clone .gitignore
+  129  git pull
+  130  git clone https://github.com/AlexKhvostov/learn_python3.git
+  131  git gedit .gitignore
+  132  gedit .gitignore
+  133  git status
+  134  gedit .gitignore
+  135  git status
+  136  git add .
+  137  git clone https://github.com/AlexKhvostov/learn_python3.git
+  138  cd ..
+  139  git clone https://github.com/AlexKhvostov/learn_python3.git
+  140  cd learn_python3/
+  141  git status
+  142  git add .
+  143  git status
+  144  git commit -m "test"
+  145  git push
+  146  git pull
+  147  mysql -u root -pProtokol911
+  148  mysql -u root -pProtokol911 Learn import.sql
+  149  mysql -u root -pProtokol911 Learn < import.sql
+  150  cd python/learn_python3/
+  151  mysql -u root -pProtokol911 Learn > import.sql
+  152  mysqldump --user=root --password=Protokol911 Learn >import.sql
+  153  gedit info.txt
+  154  history
+  155  history > history-note.txt
