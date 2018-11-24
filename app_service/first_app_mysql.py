@@ -8,13 +8,13 @@ from sqlalchemy.orm import mapper, sessionmaker
 
 
 #Создаем подключение к базе данных с использованием логина и пароля
-engine = create_engine("mysql://alex:123@localhost/Learn?host=localhost?port=3306")
+engine = create_engine("mysql://alex:Protokol911#@localhost/Learn?host=localhost?port=3306")
 #открываем сессию  ( пока не понятно замем. В расках сессии идет работа с базой и пользователями.
 Session = sessionmaker(bind=engine)
 # Создаем объекат session класса Session() для общения с базой данных
 session = Session()
 
-
+1
 ''' привязываем таблицы к коду'''
 metadata = MetaData()
 ''' таблица отделов '''
@@ -109,7 +109,14 @@ a=selectAct()
 
 if a == 1:
     ''' создание и добавление в сессию объектов классов  User и Dept'''
-    addeditem = addItem(b)
-    session.add(addeditem)
-    session.commit()
-    1
+    r="y"
+    while r == "y":
+        addeditem = addItem(b)
+        session.add(addeditem)
+        r=input("хотите добавить еще одну запись? (y/n):")
+
+
+elif a == 2:
+    pass
+
+session.commit()
