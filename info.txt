@@ -10,3 +10,6 @@
 
 # изменение пароля учетной записи "alex"
 UPDATE user SET authentication_string = PASSWORD('Protokol911#') where User = 'alex'
+
+ # установка модуля поключения пакета к mqsql
+sudo apt-get install python-pip python-dev libmysqlclient-dev

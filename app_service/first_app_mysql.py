@@ -5,10 +5,10 @@ from datetime import date
 from sqlalchemy import create_engine
 from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey
 from sqlalchemy.orm import mapper, sessionmaker
-from setting_sql import SQL
+from setting_sql import settingSQL
 
 #Создаем подключение к базе данных с использованием логина и пароля
-engine = create_engine(SQL.settingSQL)
+engine = create_engine(settingSQL)
 #открываем сессию  ( пока не понятно замем. В расках сессии идет работа с базой и пользователями.
 Session = sessionmaker(bind=engine)
 # Создаем объекат session класса Session() для общения с базой данных
