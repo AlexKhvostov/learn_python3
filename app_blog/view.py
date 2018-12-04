@@ -3,5 +3,7 @@ from flask import render_template
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    for i in ('Alex', 'Roma' , 'Tania'):
+        name = i
+    return render_template('index.html', n=name)
 
