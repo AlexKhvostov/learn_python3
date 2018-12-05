@@ -10,14 +10,121 @@
 
 
 {% block content_title %}
-    Контент титул
+    База отделов и сотрудников :
 {% endblock %}
 
 
 
 
 
+
 {% block content %}
-    Hello, {{ n }}
+<div class="col-3">
+
+    <table  class="table table-sm table-hover table-striped table-bordered" >
+        <h3>Отделы : </h3>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">
+                        Номер:
+                    </th>
+                    <th scope="col">
+                        Название отдела:
+                    </th>
+                </tr>
+            </thead>
+
+            <tr>
+                <td>
+                    1:
+                </td>
+                <td>
+                    <!-- <input id="id" type="text" size="12" value="Administrators" > --> Administrators
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    2:
+                </td>
+                <td>
+                    <!-- <input id="id" type="text" size="12" value="testers" > --> testers
+                </td>
+            </tr>
+    </table>
+
+</div>
+
+
+<div class="col-9">
+    <table  class="table table-sm table-hover table-striped table-bordered" >
+        <h3>Сотрудники: </h3>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">
+                        Номер:
+                    </th>
+                    <th scope="col">
+                        Имя сотрудника:
+                    </th>
+                    <th scope="col">
+                       Отделение:
+                    </th>
+                    <th scope="col">
+                       День рождаения:
+                    </th>
+                    <th scope="col">
+                        Зарплата:
+                    </th>
+                    <th scope="col">
+                        Действие:
+                    </th>
+                </tr>
+            </thead>
+        {% for id, name, dept, birthday, zp in name %}
+            <tr>
+                <th>
+                    {{ id }} :
+                </th>
+                <th>
+                    <input name="name" type="text" size="10" value={{ name }}>
+                </th>
+                <th>
+                    <input name="dept" type="text" size="14" value={{ dept }}>
+                </th>
+                 <th>
+                    <input name="birthday" type="text" size="10" value={{ birthday }}>
+                </th>
+                <th>
+                    <input name="zp" type="text" size="7" value={{ zp }}>
+                </th>
+                <th>
+                    <button type="button" class="btn btn-danger btn-sm">x</button>
+                </th>
+            </tr>
+        {% endfor %}
+            <tr>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                 <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+                    <button type="button" class="btn btn-success btn-sm">Обновить</button>
+                </th>
+            </tr>
+    </table>
+
+</div>
 {% endblock %}
 

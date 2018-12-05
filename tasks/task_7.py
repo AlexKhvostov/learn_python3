@@ -4,17 +4,17 @@
 '''
 import datetime
 
-def date(d,m,y):
-    true_date='True'
+def date(d, m, y):
+    true_date = 'True'
     try:
-        datetime.date(y,m,d)
+        datetime.date(y, m, d)
     except ValueError:
         true_date = 'False'
     return true_date
 
 
-y=int(input('введите год: '))
+y = int(input('введите год: '))
 m = int(input('введите месяц: '))
 d = int(input('введите день: '))
-print('дата ',d,'.',m,'.',y,' существует? - ',date(d,m,y),sep='')
+print('дата ', d, '.', m, '.', y, '  существует? - ', date(d, m, y), sep='')
 
