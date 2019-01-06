@@ -26,3 +26,17 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post id: {}, title: {}>'.format(self.id, self.title)
+
+class Workers(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    deptname = db.Column(db.Integer)
+    fullname = db.Column(db.String(30))
+    birthday = db.Column(db.Date)
+    salary = db.Column(db.Integer)
+
+    def __init__(self, *args, **kwargs):
+        super(Workers, self).__init__(*args, **kwargs)
+
+    def __repr__(self):
+        return '(id: {}, fullname: {}, deptname: {}, birthday: {}, salary: {})'.format(self.id, self.fullname, self.deptname, self.birthday, self.salary)
+        #return '<id: {}, name: {}>'.format(self.id, self.fullname)

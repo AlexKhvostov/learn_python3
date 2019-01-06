@@ -13,4 +13,3 @@ app.config.from_object(Configuration) # app не получает свойств
 
 db = SQLAlchemy(app)
 
-

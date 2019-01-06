@@ -3,13 +3,15 @@
 
 # создание пользователя в MySQL:
 	CREATE USER 'alex'@'localhost' IDENTIFIED BY '123';
+
 # Начзначение прав пользователю
 	GRANT ALL PRIVILEGES ON * . * TO 'alex'@'localhost';
+
 # перезагрузка. для того что бы изменения вступили в силу
 	FLUSH PRIVILEGES;
 
 # изменение пароля учетной записи "alex"
 UPDATE user SET authentication_string = PASSWORD('Protokol911#') where User = 'alex'
 
- # установка модуля поключения пакета к mqsql
+ # установка модуля поключения пакета к mysql
 sudo apt-get install python-pip python-dev libmysqlclient-dev
