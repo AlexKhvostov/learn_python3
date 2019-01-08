@@ -39,4 +39,3 @@ class Workers(db.Model):
 
     def __repr__(self):
         return '(id: {}, fullname: {}, deptname: {}, birthday: {}, salary: {})'.format(self.id, self.fullname, self.deptname, self.birthday, self.salary)
-        #return '<id: {}, name: {}>'.format(self.id, self.fullname)

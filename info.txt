@@ -10,8 +10,12 @@
 # перезагрузка. для того что бы изменения вступили в силу
 	FLUSH PRIVILEGES;
 
+
+
+
 # изменение пароля учетной записи "alex"
-UPDATE user SET authentication_string = PASSWORD('Protokol911#') where User = 'alex'
+# нужно выбрать БД mysql : "use mysql"
+UPDATE user SET authentication_string = PASSWORD('Protokol911#') where User = 'alex';
 
  # установка модуля поключения пакета к mysql
 sudo apt-get install python-pip python-dev libmysqlclient-dev
