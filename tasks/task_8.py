@@ -9,27 +9,24 @@
 '''
 
 
-'''  РАЗООБРАТЬСЯ С РАБОТОЙ __XOR__   '''
+'''  РАЗОБРАТЬСЯ С РАБОТОЙ __XOR__   '''
 
 class XO:
     def __xor__(self,s,k):
-        self.cip = s^k
-
+        self.cip = s ^ k
 
 
 def XOR_cipher(s,k):
     pass
 
+
 def XOR_uncipher(sl,k):
     pass
 
 
-
-
-s='qwe'
-k='asd'
-str=XO
-print (str.__xor__(s,k))
-
+s = 'qwe'
+k = 'asd'
+str = XO
+print(str.__xor__(s, k))
 
 # print (chr('s') ^ chr('k'))
