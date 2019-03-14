@@ -25,7 +25,7 @@ class Post(db.Model):
 
 
     def __repr__(self):
-        return '<Post id: {}, title: {}>'.format(self.id, self.title)
+        return '<Post_id: {},title: {} >'.format(self.id, self.title)
 
 class Workers(db.Model):
     id = db.Column(db.Integer, primary_key=True)

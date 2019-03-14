@@ -12,7 +12,7 @@ from flask import request, redirect, url_for
 
 posts = Blueprint('posts', __name__, template_folder='templates')
 
-# http:/localhost/blog/create
+# http:/localhost:5000/blog/create
 @posts.route('/create', methods=['POST','GET'])
 def create_post():
     if request.method == 'POST':

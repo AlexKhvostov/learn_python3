@@ -1,14 +1,30 @@
 from flask import Flask
+import jsonsempai #json-sempai
+import json
 from flask_restful import reqparse, abort, Api, Resource
+from app_blog.models import Post, Workers
+
 
 app = Flask(__name__)
 api = Api(app)
 
-TODOS = {
-    'todo1': {'task': 'build an API'},
-    'todo2': {'task': '?????'},
-    'todo3': {'task': 'profit!'},
-}
+post_item = Post.query.all()
+
+
+
+#TODOS = {
+#    post_item[0].title:  {'task': post_item[0].body},
+#    post_item[0].title:  {'task': post_item[1].body},
+#    post_item[0].title:  {'task': post_item[2].body},
+#}
+
+
+TODOS = []
+for number in range(3):
+    TODOS.append(post_item[number].title)
+    for number2 in range(3):
+        TODOS[number] = [post_item[0].body,post_item[1].body,post_item[2].body]
+
 
 
 def abort_if_todo_doesnt_exist(todo_id):
@@ -59,4 +75,5 @@ api.add_resource(Todo, '/todos/<todo_id>')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run( debug = True)
+    app.run( FLASK_DEBUG = True)
