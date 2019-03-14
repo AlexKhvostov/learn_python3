@@ -25,8 +25,6 @@ for number in range(3):
     for number2 in range(3):
         TODOS[number] = [post_item[0].body,post_item[1].body,post_item[2].body]
 
-
-
 def abort_if_todo_doesnt_exist(todo_id):
     if todo_id not in TODOS:
         abort(404, message="Todo {} doesn't exist".format(todo_id))
