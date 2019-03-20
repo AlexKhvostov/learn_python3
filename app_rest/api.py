@@ -2,8 +2,7 @@ from flask import Flask
 import jsonsempai #json-sempai
 import json
 from flask_restful import reqparse, abort, Api, Resource
-from app_blog.models import Post, Workers, Dept
-
+from app_blog.models import Workers, Dept, Post
 
 app = Flask(__name__)
 api = Api(app)
@@ -80,13 +79,21 @@ class Workers(Resource):
     def get(self):
         return WorkersList
 
-
+dept_names={}
+Dept_id = []
 DeptListQ = Dept.query.all()
-DeptList = {a: {} for a in ['admin', 'stud', 'cleaner', 'user' , 'math', 'tester']}
 
-for namber in range(len(DeptListQ)):
-    DeptList[namber] = {'id': WorkersListQuery[number].id, 'deptname' : WorkersListQuery[number].deptname, 'name': WorkersListQuery[number].fullname, 'salary' : WorkersListQuery[number].salary}
+for i in range(len(DeptListQ)):
+    dept_names[DeptListQ[i].id] = DeptListQ[i].name
+    Dept_id.append(DeptListQ[i].id)
 
+
+DeptList = {a: {} for a in dept_names.values()}
+
+for id in Dept_id:
+    for number in range(len(DeptListQ)):
+        if id == int(WorkersListQuery[number].deptname):
+            DeptList[dept_names[id]][WorkersListQuery[number].fullname] = {'id': WorkersListQuery[number].id, 'deptname' : dept_names[int(WorkersListQuery[number].deptname)], 'name': WorkersListQuery[number].fullname, 'salary' : WorkersListQuery[number].salary}
 
 
 
