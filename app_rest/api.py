@@ -95,7 +95,6 @@ class Dept(Resource):
         return DeptList
 
 
-
 ##
 ## Actually setup the Api resource routing here
 ##
