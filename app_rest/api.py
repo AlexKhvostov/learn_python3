@@ -8,21 +8,12 @@ app = Flask(__name__)
 api = Api(app)
 
 
-
-
-
-#TODOS = {
-#    post_item[0].title:  {'task': post_item[0].body},
-#    post_item[0].title:  {'task': post_item[1].body},
-#    post_item[0].title:  {'task': post_item[2].body},
-#}
-
 post_item = Post.query.all()
 TODOS = []
 for number in range(3):
     TODOS.append(post_item[number].title)
     for number2 in range(3):
-        TODOS[number] = [post_item[0].body,post_item[1].body,post_item[2].body]
+        TODOS[number] = [post_item[0].body, post_item[1].body, post_item[2].body]
 
 def abort_if_todo_doesnt_exist(todo_id):
     if todo_id not in TODOS:
@@ -65,12 +56,14 @@ class TodoList(Resource):
         return TODOS[todo_id], 201
 
 #WorkList = {}
+
+
 WorkersListQuery = Workers.query.all()
 
 
-WorkersList = {a: {} for a in range(len(WorkersListQuery))}
+WorkersList = {a: {} for a in range(1, len(WorkersListQuery)+1)}
 for number in range(len(WorkersListQuery)):
-    WorkersList[number] = {'id': WorkersListQuery[number].id, 'deptname' : WorkersListQuery[number].deptname, 'name': WorkersListQuery[number].fullname, 'salary' : WorkersListQuery[number].salary}
+    WorkersList[number+1] = {'id': WorkersListQuery[number].id, 'deptname': WorkersListQuery[number].deptname, 'name': WorkersListQuery[number].fullname, 'salary' : WorkersListQuery[number].salary}
 
 
 # WorkList
@@ -91,10 +84,9 @@ for i in range(len(DeptListQ)):
 DeptList = {a: {} for a in dept_names.values()}
 
 for id in Dept_id:
-    for number in range(len(DeptListQ)):
+    for number in range(len(WorkersListQuery)):
         if id == int(WorkersListQuery[number].deptname):
             DeptList[dept_names[id]][WorkersListQuery[number].fullname] = {'id': WorkersListQuery[number].id, 'deptname' : dept_names[int(WorkersListQuery[number].deptname)], 'name': WorkersListQuery[number].fullname, 'salary' : WorkersListQuery[number].salary}
-
 
 
 class Dept(Resource):
@@ -102,15 +94,27 @@ class Dept(Resource):
         return DeptList
 
 
+class Worker(Resource):
+    def get(self, worker_id):
+        return  {'id': WorkersListQuery[int(worker_id)].id, 'deptname' : dept_names[int(WorkersListQuery[int(worker_id)].deptname)], 'name': WorkersListQuery[int(worker_id)].fullname, 'salary' : WorkersListQuery[int(worker_id)].salary}
+
+    def delete(self, worker_id):
+        abort_if_todo_doesnt_exist(worker_id)
+        del WorkersListQuery[int(worker_id)]
+        return '', 204
+
+
+
 ##
 ## Actually setup the Api resource routing here
 ##
-api.add_resource(TodoList, '/todos')
-api.add_resource(Todo, '/todos/<todo_id>')
+#api.add_resource(TodoList, '/todos')
+#api.add_resource(Todo, '/todos/<todo_id>')
 api.add_resource(Workers, '/workers')
+api.add_resource(Worker, '/workers/<worker_id>')
 api.add_resource(Dept, '/dept')
 
 
 if __name__ == '__main__':
-    app.run( debug = True)
-    app.run( FLASK_DEBUG = True)
+    app.run(debug=True)
+    app.run(FLASK_DEBUG=True)
