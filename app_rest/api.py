@@ -1,12 +1,39 @@
 from flask import Flask
 import jsonsempai #json-sempai
 import json
+import logging
+
 from flask_restful import reqparse, abort, Api, Resource
 from app_blog.models import Workers, Dept, Post
+from app_blog.app import app
 
-app = Flask(__name__)
+from sqlalchemy import create_engine
+from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey
+from sqlalchemy.orm import mapper, sessionmaker
+from setting_sql import settingSQL
+
+
 api = Api(app)
 
+
+
+# add filemode="w" to overwrite
+
+logging.basicConfig(filename="sample.log", level=logging.DEBUG , filemode="w" )
+
+logging.debug("This is a debug message")
+logging.info("Informational message:")
+logging.error("An error has happened!")
+
+
+
+
+#Создаем подключение к базе данных с использованием логина и пароля
+engine = create_engine(settingSQL)
+#открываем сессию  ( пока не понятно замем. В расках сессии идет работа с базой и пользователями.
+Session = sessionmaker(bind=engine)
+# Создаем объекат session класса Session() для общения с базой данных
+session = Session()
 
 post_item = Post.query.all()
 TODOS = []
@@ -68,7 +95,7 @@ for number in range(len(WorkersListQuery)):
 
 # WorkList
 # return list workers
-class Workers(Resource):
+class Workerss(Resource):
     def get(self):
         return WorkersList
 
@@ -94,27 +121,36 @@ class Dept(Resource):
         return DeptList
 
 
+def test():
+    return 'Hello', 1, [1, 2, 3]
+
+
 class Worker(Resource):
     def get(self, worker_id):
-        return  {'id': WorkersListQuery[int(worker_id)].id, 'deptname' : dept_names[int(WorkersListQuery[int(worker_id)].deptname)], 'name': WorkersListQuery[int(worker_id)].fullname, 'salary' : WorkersListQuery[int(worker_id)].salary}
+        return ({'id': WorkersListQuery[int(worker_id)].id, 'deptname': dept_names[int(WorkersListQuery[int(worker_id)].deptname)], 'name': WorkersListQuery[int(worker_id)].fullname, 'salary' : WorkersListQuery[int(worker_id)].salary}, 200, )
 
     def delete(self, worker_id):
-        abort_if_todo_doesnt_exist(worker_id)
-        del WorkersListQuery[int(worker_id)]
+        #abort_if_todo_doesnt_exist(worker_id)
+        print(Workers.query.filter_by(id=int(worker_id)).first())
+        session.query(Workers).filter(Workers.id == int(worker_id)).delete()
+        a =Workers.query.filter_by(id=4).first()
+        logging.info('dell item : '+str(a))
         return '', 204
 
 
-
+ #   item = Workers(deptname, fullname, birthday, salary)
 ##
 ## Actually setup the Api resource routing here
 ##
 #api.add_resource(TodoList, '/todos')
 #api.add_resource(Todo, '/todos/<todo_id>')
-api.add_resource(Workers, '/workers')
+api.add_resource(Workerss, '/workers')
 api.add_resource(Worker, '/workers/<worker_id>')
 api.add_resource(Dept, '/dept')
 
+session.commit()
 
 if __name__ == '__main__':
     app.run(debug=True)
-    app.run(FLASK_DEBUG=True)
+
+
