@@ -105,7 +105,7 @@ def seetable(tabl): # принимает таблицу
         for id, name in session.query(Dept.id, Dept.name):
             print("|", id, "|", name, probel(len(str(name)), 15),"|")
         print(tire(25))
-    elif tabl ==2:
+    elif tabl == 2:
         print(tire(74))
         for instance in session.query(Workers).order_by(Workers.id):
             #name = session.query(Dept.name).filter(Dept.id == instance.deptname)
